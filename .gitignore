@@ -1,0 +1,7 @@
+.bak
+.DS_Store
+.vscode
+Thumbs.db
+node_modules
+
+./public_html

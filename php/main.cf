@@ -1,0 +1,37 @@
+compatibility_level = 3.7
+queue_directory = /var/spool/postfix
+command_directory = /usr/sbin
+daemon_directory = /usr/libexec/postfix
+data_directory = /var/lib/postfix
+unknown_local_recipient_reject_code = 550
+smtpd_banner = $myhostname ESMTP $mail_name (alphine)
+debugger_command =
+         PATH=/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin
+         ddd $daemon_directory/$process_name $process_id & sleep 5
+home_mailbox = Maildir/
+# mydestination = localhost
+mydestination = $myhostname, localhost.$mydomain, localhost
+sendmail_path = /usr/sbin/sendmail
+newaliases_path = /usr/bin/newaliases
+mailq_path = /usr/bin/mailq
+setgid_group = postdrop
+html_directory = no
+manpage_directory = /usr/share/man
+sample_directory = /etc/postfix
+readme_directory = /usr/share/doc/postfix
+inet_protocols = ipv4
+inet_interfaces = localhost
+mail_spool_directory = /var/mail
+debug_peer_level = 2
+debug_peer_list = 127.0.0.1
+
+
+
+maillog_file = /var/log/maillog.log
+
+# SMTPリレーの設定
+relayhost = [smtp.mailtrap.io]:2525
+smtp_sasl_auth_enable = yes
+smtp_sasl_mechanism_filter = plain
+smtp_sasl_security_options = noanonymous
+smtp_sasl_password_maps = lmdb:/etc/postfix/sasl_passwd
