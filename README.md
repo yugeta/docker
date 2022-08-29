@@ -13,7 +13,7 @@ Author : Yugeta.Koji
 
 1. Clone
 ```
-$ git clone https://github.com/yugeta/docker
+$ git clone https://github.com/yugeta/docker.git
 ```
 
 2. public_htmlフォルダ作成
