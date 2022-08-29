@@ -17,4 +17,11 @@ services:
       - ./public_html:/var/www/html
     depends_on:
       - php
-      
+  node:
+    platform : linux/amd64
+    container_name : node
+    build: ./node
+    working_dir: /app
+    volumes :
+      - ./public_html:/app
+    tty : true
