@@ -17,4 +17,11 @@ services:
       - ./public_html:/var/www/html
     depends_on:
       - php
-      
+
+  sqlite3:
+    container_name: sqlite
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./public_html/:/root/db/
