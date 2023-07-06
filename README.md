@@ -6,12 +6,20 @@ Author : Yugeta.Koji
 ```
 
 # Summary
-- Golang環境の構築
+- Python環境の構築
+
+# Build
+> docker-compose build
+
+- 確認
+> docker images |grep python3
+
 
 # Start
->  docker exec -it docker_golang_1 sh 
+>  docker-compose up -d
+> docker-compose ps
 
-# Hello world
-> go run main.go
+# Login
+> docker exec -it python3 bash
 
 

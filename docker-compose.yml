@@ -1,7 +1,10 @@
-version: "3"
-services: 
-  golang:
+version: '3'
+services:
+  python3:
+    restart: always
     build: .
-    volumes: 
-      - ./:/go/src
+    container_name: 'python3'
+    working_dir: '/root/src'
     tty: true
+    volumes:
+      - ${SRC_PATH}:/root/src
