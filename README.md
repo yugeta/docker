@@ -8,4 +8,10 @@ Author : Yugeta.Koji
 # Summary
 - Golang環境の構築
 
+# Start
+>  docker exec -it docker_golang_1 sh 
+
+# Hello world
+> go run main.go
+
 
