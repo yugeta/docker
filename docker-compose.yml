@@ -1,10 +1,8 @@
 version: '3.6'
 services:
-  nginx:
-    build:
-      context: .
-      dockerfile: Dockerfiles/proxy
-    ports:
-     - "80:80"
-    environment:
-     - OVERRIDE_UA
+  perl:
+    container_name : perl
+    build: .
+    volumes: 
+      - ./src:/var
+    tty: true

@@ -11,17 +11,11 @@ Author : Yugeta.Koji
 # Build
 > docker-compose build
 
-<!-- - 確認
-> docker images |grep python3 -->
-
-
 # Start
 > docker-compose up -d
 > docker-compose ps
 
 # Login
-> docker-compose exec java bash
-> javac Main.java
-> java Main
-
-
+> docker-compose exec docker_perl_1 sh
+> docker exec -it perl bash
+> perl hello.pl 
