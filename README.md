@@ -6,7 +6,7 @@ Author : Yugeta.Koji
 ```
 
 # Summary
-- Java環境の構築
+- Nginx + Perl 環境の構築
 
 # Build
 > docker-compose build

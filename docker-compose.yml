@@ -1,9 +1,10 @@
 version: '3.6'
 services:
-  java:
-    build: ./java
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfiles/proxy
     ports:
-      - 8080:8080
-    tty: true
-    volumes:
-      - ./src:/usr/src:cached
+     - "80:80"
+    environment:
+     - OVERRIDE_UA
