@@ -11,15 +11,17 @@ Author : Yugeta.Koji
 # Build
 > docker-compose build
 
-- 確認
-> docker images |grep python3
+<!-- - 確認
+> docker images |grep python3 -->
 
 
 # Start
->  docker-compose up -d
+> docker-compose up -d
 > docker-compose ps
 
 # Login
-> docker exec -it python3 bash
+> docker-compose exec java bash
+> javac Main.java
+> java Main
 
 
