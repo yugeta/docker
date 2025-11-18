@@ -1,0 +1,31 @@
+FROM php:8.2-fpm-alpine
+ARG xdebug_enabled=false
+
+# 必要なパッケージをインストール
+RUN apk update && apk add --no-cache \
+    bash \
+    build-base \
+    mariadb-connector-c-dev \
+    libmcrypt-dev \
+    libjpeg-turbo-dev \
+    libwebp-dev \
+    libpng-dev
+
+# pdo_mysqlを有効化
+RUN docker-php-ext-install -j$(nproc) pdo_mysql
+
+# その他の必要な拡張機能
+RUN pecl install mcrypt && docker-php-ext-enable mcrypt
+RUN docker-php-ext-configure gd --with-jpeg && docker-php-ext-install -j$(nproc) gd
+
+# VimやPostfixなど追加パッケージ
+RUN apk add --no-cache \
+    busybox \
+    syslog-ng \
+    cyrus-sasl \
+    postfix \
+    vim
+
+COPY main.cf /etc/postfix/
+COPY sasl_passwd /etc/postfix/
+RUN /usr/sbin/postmap /etc/postfix/sasl_passwd
