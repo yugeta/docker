@@ -20,9 +20,10 @@ services:
   node:
     container_name : node
     build: ./node
-    working_dir: /postcss
+    # working_dir: /app
     tty : true
     volumes :
       - ./public_html:/app
-      - ./node/postcss/:/postcss
-    command: /postcss/postcss_watch.sh
+      - ./node/postcss/postcss.config.js:/postcss/postcss.config.js
+      - ./node/postcss/watch.sh:/postcss/watch.sh
+    command: /postcss/watch.sh
