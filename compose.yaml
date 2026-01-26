@@ -20,9 +20,6 @@ services:
   node:
     container_name : node
     build: ./node
-    # build: 
-    #   context: ./public_htmlls 
-    #   dockerfile: .node/Dockerfile
     working_dir: /node
     tty : true
     volumes :
