@@ -1,4 +1,4 @@
-.bak
+*.bak
 .DS_Store
 .vscode
 Thumbs.db
