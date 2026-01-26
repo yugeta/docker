@@ -3,7 +3,7 @@ services:
     container_name : php
     build : ./php
     volumes:
-      - ./public_html:/var/www/html
+      - ./minimize:/var/www/html
     working_dir: /var/www/html
     
   nginx:
@@ -13,17 +13,23 @@ services:
       - 8888:80
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./public_html:/var/www/html
+      - ./minimize:/var/www/html
     depends_on:
       - php
 
   node:
     container_name : node
     build: ./node
+    # build: 
+    #   context: ./public_htmlls 
+    #   dockerfile: .node/Dockerfile
+    working_dir: /node
     tty : true
     volumes :
-      - ./public_html:/app
-      - ./node/postcss/postcss.config.js:/postcss/postcss.config.js
-      - ./node/postcss/watch.sh:/postcss/watch.sh
-      # - ./node/esbuild/package.json:/postcss/package.json
-    command: /postcss/watch.sh
+      - ./minimize:/app
+      - ./node/postcss/postcss.config.js:/node/postcss/postcss.config.js
+      - ./node/postcss/watch.sh:/node/postcss/watch.sh
+      - ./node/esbuild/watch.sh:/node/esbuild/watch.sh
+    command: 
+      - /node/postcss/watch.sh
+      - /node/esbuild/watch.sh
