@@ -1,5 +1,5 @@
-#!/bin/sh
-set -u
+# #!/bin/sh
+# set -u
 npx esbuild /app/**/main.js \
   --bundle \
   --minify \
@@ -11,3 +11,5 @@ npx esbuild /app/**/main.js \
   --external:bak/* \
   --log-level=error \
   --watch
+
+## package.json のscriptsに記述

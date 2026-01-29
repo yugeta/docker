@@ -22,11 +22,12 @@ services:
     build: ./node
     working_dir: /node
     tty : true
+    stdin_open: true
     volumes :
       - ./minimize:/app
       - ./node/postcss/postcss.config.js:/node/postcss/postcss.config.js
-      - ./node/postcss/watch.sh:/node/postcss/watch.sh
-      - ./node/esbuild/watch.sh:/node/esbuild/watch.sh
-    command: 
-      - /node/postcss/watch.sh
-      - /node/esbuild/watch.sh
+      # - ./node/esbuild/watch.sh:/node/esbuild/watch.sh
+      # - ./node/postcss/watch.sh:/node/postcss/watch.sh
+    command: npm run dev
+      # - /node/postcss/watch.sh
+      # - /node/esbuild/watch.sh

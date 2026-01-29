@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "dev": "npm-run-all --parallel css js",
+    "css": "npx postcss \"/app/**/style.css\" --base /app/ --dir /app/ --ext .min.css --watch --config /node/postcss/postcss.config.js --ignore \"**/*.bak/**\" > postcss.log 2>&1",
+    "js" : "npx esbuild /app/**/main.js --bundle --minify --format=esm --outbase=/app/ --outdir=/app/ --entry-names=[dir]/main.min --external:*.bak --external:bak/* --log-level=error --watch > efbuild.log 2>&1"
+  },
   "name": "node",
   "version": "1.0.0",
   "main": "index.js",

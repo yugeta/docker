@@ -6,4 +6,7 @@ npx postcss "/app/**/style.css" \
   --ext .min.css \
   --watch \
   --config /node/postcss/postcss.config.js \
-  --ignore "**/*.bak/**"
+  --ignore "**/*.bak/**" \
+  > postcss.log 2>&1
+
+  ## package.json のscriptsに記述
